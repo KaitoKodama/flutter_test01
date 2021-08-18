@@ -1,6 +1,11 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:ios_test01/load_page.dart';
+import 'package:ios_test01/push_page.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -50,6 +55,24 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
+            ),
+            OutlinedButton(
+              child: Text('PushToDB'),
+              onPressed: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => PushPage()),
+                );
+              },
+            ),
+            OutlinedButton(
+              child: Text('LoadFromDB'),
+              onPressed: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => LoadPage()),
+                );
+              },
             ),
           ],
         ),
