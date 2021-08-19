@@ -1,8 +1,0 @@
-source 'https://github.com/CocoaPods/Specs.git'
-ENV['COCOAPODS_DISABLE_STATS'] = 'true'
-
-platform :ios, '10.0'
-
-target 'Runner' do
-project 'Runner.xcodeproj'
-end
